@@ -1,12 +1,11 @@
 //
 //  ViewController.swift
-//  Camera Access6
-//  Copyright (c) 2015 ElenaWill. All rights reserved.
+//  Patho Reader
+//  Copyright (c) 2015 Pathonomic. All rights reserved.
 //  PROJECT DESCRIPTION: iPhone camera app that uses AVCapture to take photo, also modifying focus, zoom, torch, etc.
 //  CREATED BY: Elena and Will on 6/22/15 aka Elena's birthday
-//  LAST MODIFIED BY: Elena on 7/20
+//  LAST MODIFIED BY: Elena on 7/21
 //
-//  TO DO: fix the saving function, draw circle thing, color wheel, freehand draw
 
 import UIKit //for the UI elements including the slider, the pinch, etc.
 import AVFoundation //for the AVCaptureSession
@@ -20,7 +19,7 @@ class ViewController: UIViewController
     var imageData: NSData!
     var tap = UITapGestureRecognizer()
     
-    // MARK: CONSTANTS: UI THINGS INCLUDING CUSTOM COLORS AND DIMENSIONS
+// MARK: CONSTANTS: UI THINGS INCLUDING CUSTOM COLORS AND DIMENSIONS
     let pathonomicGreen = UIColor(red: 0x73/255, green: 0xC4/255, blue: 0x8E/255, alpha: 1.0)
     let pathonomicBlue = UIColor(red: 0x16/255, green: 0x36/255, blue: 0x50/255, alpha: 1.0)
     let pathonomicGreenish = UIColor(red: 0x73/255, green: 0xC4/255, blue: 0x8E/255, alpha: 0.5)
@@ -35,7 +34,7 @@ class ViewController: UIViewController
     let diameter = CGFloat(80) // diameter of photo button
     let miniDiameter = CGFloat(40)
     
-    // MARK: SET UP CAPTURE SESSION AND PREVIEW LAYER
+ // MARK: SET UP CAPTURE SESSION AND PREVIEW LAYER
     override func viewDidLoad(){ //SELECTS THE CORRECT CAMERA, AND CALLS SEVERAL LATER FUNCTIONS
         super.viewDidLoad()
         captureSession.sessionPreset = AVCaptureSessionPresetHigh //changed low to high quality
@@ -78,7 +77,7 @@ class ViewController: UIViewController
         captureSession.startRunning() //start
     }
     
-    // MARK: UI BUTTON FOR CAMERA FUNCTIONALITY
+// MARK: UI BUTTON FOR CAMERA FUNCTIONALITY
     func createButton(){ //CREATE A CAMERA BUTTON THAT WILL TAKE A PHOTO
         let image = UIImage(named: "play.png") as UIImage!
         var cameraButton = UIButton.buttonWithType(.Custom) as! UIButton
@@ -108,7 +107,7 @@ class ViewController: UIViewController
         })
     }
     
-    // MARK: PHOTO PREVIEW CODE AND UIBUTTONS TO SAVE IMAGE OR CANCEL IMAGE
+// MARK: PHOTO PREVIEW CODE AND UIBUTTONS TO SAVE IMAGE OR CANCEL IMAGE
     func photoAction(sender: AnyObject) //FREEZES SCREEN TO SHOW PHOTO PREVIEW
     {
         self.flashScreen()
@@ -172,7 +171,7 @@ class ViewController: UIViewController
     }
     
     
-    // MARK: SLIDE FOR LIGHT: SETS UP A SLIDER THAT CONTROLS TORCH LEVEL
+// MARK: SLIDE FOR LIGHT: SETS UP A SLIDER THAT CONTROLS TORCH LEVEL
     func createSliderLight() //CREATES A SLIDER ON THE SCREEN, SPECIYING LOCATION, ROTATION, COLOR, STARTING VALUE
     {
         //var lightValueSlider = UISlider(frame:CGRectMake(margin, view.frame.size.height - 60, view.frame.size.width - 2*margin, height)) //initialize a slider object, and (x,y,width,height)
@@ -220,7 +219,7 @@ class ViewController: UIViewController
         }
     }
     
-    // MARK: PORTRAIT LOCK: LOCKS THE ENTIRE APP TO PORTRAIT MODE SO THE USER CANNOT ROTATE IT [plagarized]
+// MARK: PORTRAIT LOCK: LOCKS THE ENTIRE APP TO PORTRAIT MODE SO THE USER CANNOT ROTATE IT [plagarized]
     override func shouldAutorotate() -> Bool
     {
         return false
@@ -230,7 +229,7 @@ class ViewController: UIViewController
         return UIInterfaceOrientation.Portrait.rawValue
     }
     
-    // MARK: SLIDE TO ZOOM: CREATES A SLIDER THAT ALLOWS 1-20x ZOOM
+// MARK: SLIDE TO ZOOM: CREATES A SLIDER THAT ALLOWS 1-20x ZOOM
     func createSliderZoom() //CREATES A SLIDER ON THE SCREEN
     {
         //var zoomValueSlider = UISlider(frame:CGRectMake(margin, view.frame.size.height - 110, view.frame.size.width - 2*margin, height)) //initialize a slider object, and (x,y,width,height)
